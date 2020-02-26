@@ -39,6 +39,7 @@ namespace OOPLearning2
                 }
             }
         }
+
         public string LastName
         {
             get { return lastName; }
@@ -55,6 +56,7 @@ namespace OOPLearning2
                 }
             }
         }
+
         public DateTime BirthDate
         {
             get { return BirthDate; }
@@ -71,6 +73,7 @@ namespace OOPLearning2
                 }
             }
         }
+
         public ContactInformation ContactInformation
         {
             get { return contactInformation; }
@@ -79,6 +82,7 @@ namespace OOPLearning2
 
             } 
         }
+
         public int Age { get; }
 
         public static (bool, string) ValidateFirstName(string firstName)
@@ -100,6 +104,7 @@ namespace OOPLearning2
                 return (true, String.Empty);
             }
         }
+
         public static (bool, string) ValidateLastName(string lastName)
         {
             if(lastName is null)
@@ -115,6 +120,7 @@ namespace OOPLearning2
                 return (true, String.Empty);
             }
         }
+
         public static (bool, string) ValidateBirthDate(DateTime birthDate)
         {
             if(birthDate > DateTime.Now)

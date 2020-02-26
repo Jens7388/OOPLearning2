@@ -31,6 +31,7 @@ namespace OOPLearning2
 
             }
         }
+
         public string StreetNumber
         {
             get { return streetNumber; }
@@ -39,6 +40,7 @@ namespace OOPLearning2
 
             }
         }
+
         public string Zip
         {
             get { return zip; }
@@ -47,6 +49,7 @@ namespace OOPLearning2
 
             }
         }
+
         public string City
         {
             get { return city; }
@@ -55,6 +58,7 @@ namespace OOPLearning2
 
             }
         }
+
         public string Country
         {
             get { return country; }
@@ -63,6 +67,7 @@ namespace OOPLearning2
 
             }
         }
+
         public List<Person> Persons
         {
             get { return persons; }
@@ -87,6 +92,7 @@ namespace OOPLearning2
                 return (true, String.Empty);
             }
         }
+
         public static (bool, string) ValidateStreetNumber(string streetNumber)
         {
             if(streetNumber is null)

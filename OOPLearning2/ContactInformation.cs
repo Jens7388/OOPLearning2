@@ -15,6 +15,7 @@ namespace OOPLearning2
             Mail = mail;
             Phone = phone;
         }
+
         public string Mail 
         {
             get { return mail; }

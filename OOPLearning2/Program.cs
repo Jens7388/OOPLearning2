@@ -6,7 +6,7 @@ namespace OOPLearning2
     {
         static void Main()
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
