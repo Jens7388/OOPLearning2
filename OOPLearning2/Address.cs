@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace OOPLearning2
@@ -25,32 +26,85 @@ namespace OOPLearning2
 
         public string StreetName { 
             get { return streetName; }
-            set { }
+            set 
+            { 
+
+            }
         }
         public string StreetNumber
         {
             get { return streetNumber; }
-            set { }
+            set
+            {
+
+            }
         }
         public string Zip
         {
             get { return zip; }
-            set { }
+            set 
+            {
+
+            }
         }
         public string City
         {
             get { return city; }
-            set { }
+            set
+            {
+
+            }
         }
         public string Country
         {
             get { return country; }
-            set { }
+            set
+            {
+
+            }
         }
         public List<Person> Persons
         {
             get { return persons; }
-            set { }
+            set
+            {
+
+            }
+        }
+
+        public static (bool, string) ValidateStreetName(string streetName)
+        {
+            if(streetName is null)
+            {
+                return (false, "StreetName er null!");
+            }
+            if(!streetName.Any(c => char.IsLetter(c)))
+            {
+                return (false, "StreetName skal indeholde bogstaver!");
+            }
+            else
+            {
+                return (true, String.Empty);
+            }
+        }
+        public static (bool, string) ValidateStreetNumber(string streetNumber)
+        {
+            if(streetNumber is null)
+            {
+                return (false, "StreetNumber er null!");
+            }
+            if(!streetNumber.Any(c => char.IsNumber(c)))
+            {
+                return (false, "StreetNumber skal indeholde mindst et tal!");
+            }
+            if(streetNumber.Contains("-"))
+            {
+                return (false, "StreetNumber må ikke være negativt!");
+            }
+            else
+            {
+                return (true, String.Empty);
+            }
         }
     }
 }
