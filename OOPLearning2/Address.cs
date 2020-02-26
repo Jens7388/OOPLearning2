@@ -13,6 +13,16 @@ namespace OOPLearning2
         private string country;
         private List<Person> persons;
 
+        public Address(string streetName, string streetNumber, string zip, string city, string country, List<Person> persons)
+        {
+            StreetName = streetName;
+            StreetNumber = streetNumber;
+            Zip = zip;
+            City = city;
+            Country = country;
+            Persons = persons;
+        }
+
         public string StreetName { 
             get { return streetName; }
             set { }
