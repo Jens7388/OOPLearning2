@@ -13,7 +13,7 @@ namespace OOPLearning2
         private ContactInformation contactInformation;
         private int age;
 
-        public Person(string firstName, string lastName, DateTime birthDate, ContactInformation contactInformation, int age)
+        public Person(string firstName, string lastName, DateTime birthDate, int age, ContactInformation contactInformation)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -79,11 +79,19 @@ namespace OOPLearning2
             get { return contactInformation; }
             set
             {
-                (bool isValid, string errorMessage) validationResultMail = ContactInformation.ValidateMail(value);
-                (bool isValid, string errorMessage) validationResultPhone = ContactInformation.ValidatePhone(value);
+                (bool isValid, string errorMessage) validationResultMail = ContactInformation.ValidateMail(value.Mail);
                 if(!validationResultMail.isValid)
                 {
-                    throw new ArgumentException(nameof(ContactInformation.Mail), validationResultMail)
+                    throw new ArgumentException(nameof(ContactInformation.Mail), validationResultMail.errorMessage);
+                }               
+                (bool isValid, string errorMessage) validationResultPhone = ContactInformation.ValidatePhone(value.Phone);
+                if(!validationResultPhone.isValid)
+                {
+                    throw new ArgumentException(nameof(ContactInformation.Phone), validationResultPhone.errorMessage);
+                }
+                if(value != contactInformation) 
+                {
+                    contactInformation = value;
                 }
             } 
         }
@@ -140,9 +148,6 @@ namespace OOPLearning2
             {
                 return (true, String.Empty);
             }
-        }
-
-                     
-                
+        }                
     }
 }
