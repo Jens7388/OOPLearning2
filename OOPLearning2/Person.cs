@@ -79,7 +79,12 @@ namespace OOPLearning2
             get { return contactInformation; }
             set
             {
-
+                (bool isValid, string errorMessage) validationResultMail = ContactInformation.ValidateMail(value);
+                (bool isValid, string errorMessage) validationResultPhone = ContactInformation.ValidatePhone(value);
+                if(!validationResultMail.isValid)
+                {
+                    throw new ArgumentException(nameof(ContactInformation.Mail), validationResultMail)
+                }
             } 
         }
 
@@ -136,5 +141,8 @@ namespace OOPLearning2
                 return (true, String.Empty);
             }
         }
+
+                     
+                
     }
 }

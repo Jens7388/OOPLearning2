@@ -27,8 +27,16 @@ namespace OOPLearning2
         public string StreetName { 
             get { return streetName; }
             set 
-            { 
-
+            {
+                (bool isValid, string errorMessage) validationResult = ValidateStreetName(value);
+                if(!validationResult.isValid)
+                {
+                    throw new ArgumentException(nameof(streetName), validationResult.errorMessage);
+                }
+                if(value != streetName)
+                {
+                    streetName = value;
+                }
             }
         }
 
@@ -37,7 +45,15 @@ namespace OOPLearning2
             get { return streetNumber; }
             set
             {
-
+                (bool isValid, string errorMessage) validationResult = ValidateStreetNumber(value);
+                if(!validationResult.isValid)
+                {
+                    throw new ArgumentException(nameof(streetNumber), validationResult.errorMessage);
+                }
+                if(value != streetNumber)
+                {
+                    streetNumber = value;
+                }
             }
         }
 
@@ -46,7 +62,15 @@ namespace OOPLearning2
             get { return zip; }
             set 
             {
-
+                (bool isValid, string errorMessage) validationResult = ValidateZip(value);
+                if(!validationResult.isValid)
+                {
+                    throw new ArgumentException(nameof(zip), validationResult.errorMessage);
+                }
+                if(value != zip)
+                {
+                    zip = value;
+                }
             }
         }
 
@@ -55,7 +79,15 @@ namespace OOPLearning2
             get { return city; }
             set
             {
-
+                (bool isValid, string errorMessage) validationResult = ValidateCity(value);
+                if(!validationResult.isValid)
+                {
+                    throw new ArgumentException(nameof(city), validationResult.errorMessage);
+                }
+                if(value != city)
+                {
+                    city = value;
+                }
             }
         }
 
@@ -64,7 +96,15 @@ namespace OOPLearning2
             get { return country; }
             set
             {
-
+                (bool isValid, string errorMessage) validationResult = ValidateCountry(value);
+                if(!validationResult.isValid)
+                {
+                    throw new ArgumentException(nameof(country), validationResult.errorMessage);
+                }
+                if(value != country)
+                {
+                    country = value;
+                }
             }
         }
 
@@ -106,6 +146,59 @@ namespace OOPLearning2
             if(streetNumber.Contains("-"))
             {
                 return (false, "StreetNumber må ikke være negativt!");
+            }
+            else
+            {
+                return (true, String.Empty);
+            }
+        }
+        public static (bool, string) ValidateZip(string zip)
+        {
+            if(zip is null)
+            {
+                return (false, "Zip er null!");
+            }
+            if(zip.Length < 2)
+            {
+                return (false, "Zip skal være på mindst 2 cifre!");
+            }
+            else
+            {
+                return (true, String.Empty);
+            }
+        }
+        public static (bool, string) ValidateCity(string city)
+        {
+            if(city is null)
+            {
+                return (false, "City er null!");
+            }
+            if(city.Any(c => char.IsDigit(c)))
+            {
+                return (false, "City må ikke indeholde andet end bogstaver og mellemrum!");
+            }
+            if(!city.Any(c => char.IsLetter(c)))
+            {
+                return (false, "City skal indeholde mindst et bogstav!");
+            }
+            else
+            {
+                return (true, String.Empty);
+            }
+        }
+        public static (bool, string) ValidateCountry(string country)
+        {
+            if(country is null)
+            {
+                return (false, "Country er null!");
+            }
+            if(country.Any(c => char.IsDigit(c)))
+            {
+                return (false, "Country må ikke indeholde andet end bogstaver og mellemrum!");
+            }
+            if(!country.Any(c => char.IsLetter(c)))
+            {
+                return (false, "Country skal indeholde mindst et bogstav!");
             }
             else
             {
