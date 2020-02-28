@@ -107,7 +107,7 @@ namespace OOPLearning2
             {
                 return (false, "FirstName må ikke være kortere end 2 cifre!");
             }
-            if(!firstName.Any(c => char.IsLetter(c)))
+            if(firstName.Any(c => !char.IsLetter(c)))
             {
                 return (false, "FirstName må kun indeholde bogstaver!");
             }
@@ -129,7 +129,7 @@ namespace OOPLearning2
             }
             else
             {
-                return (true, String.Empty);
+                return (true, string.Empty);
             }
         }
 
