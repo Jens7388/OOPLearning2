@@ -20,12 +20,11 @@ namespace OOPLearning2
             BirthDate = birthDate;
             ContactInformation = contactInformation;
             Age = age;
-
         }
 
         public string FirstName
         {
-            get { return FirstName; }
+            get { return firstName; }
             set
             {
                 (bool isValid, string errorMessage) validationResult = ValidateFirstName(value);
@@ -59,7 +58,7 @@ namespace OOPLearning2
 
         public DateTime BirthDate
         {
-            get { return BirthDate; }
+            get { return birthDate; }
             set
             {
                 (bool isValid, string errorMessage) validationResult = ValidateBirthDate(value);

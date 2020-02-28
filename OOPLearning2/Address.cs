@@ -113,7 +113,10 @@ namespace OOPLearning2
             get { return persons; }
             set
             {
-
+                if(persons != value)
+                {
+                    value = persons;
+                }
             }
         }
 
@@ -167,6 +170,7 @@ namespace OOPLearning2
                 return (true, String.Empty);
             }
         }
+
         public static (bool, string) ValidateCity(string city)
         {
             if(city is null)
@@ -186,6 +190,7 @@ namespace OOPLearning2
                 return (true, String.Empty);
             }
         }
+
         public static (bool, string) ValidateCountry(string country)
         {
             if(country is null)
