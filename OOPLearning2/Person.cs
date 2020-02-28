@@ -11,7 +11,6 @@ namespace OOPLearning2
         private string lastName;
         private DateTime birthDate;
         private ContactInformation contactInformation;
-        private int age;
 
         public Person(string firstName, string lastName, DateTime birthDate, int age, ContactInformation contactInformation)
         {

@@ -15,7 +15,7 @@ namespace OOPLearning2
             {               
                 createPerson("Richard", "Head", new DateTime(1969, 9, 6), new ContactInformation("Headboss@mail.co.ck", "42069666"));
                 createPerson("Ivan", "Jerkov", new DateTime(2000, 04, 20), new ContactInformation("jerkov@mail.ru", "12345678"));
-                createAddress("420th street", "69", "1234", "Intercourse", "USA", persons = new List<Person>() {persons[0]});
+                createAddress("420th street", "69", "1234", "Intercourse", "USA", persons = new List<Person>() {persons[1]});
             }
             catch(Exception ex)
             {
@@ -40,7 +40,7 @@ namespace OOPLearning2
                 Console.WriteLine($"Telefonnummer: {contactInformation.Phone}\n");           
         }
 
-        private static void createAddress(string streetName, string streetNumber, string zip, string city, string country, List<Person> people) 
+        private static void createAddress(string streetName, string streetNumber, string zip, string city, string country, List<Person> persons) 
         {
             Address address = new Address(streetName, streetNumber, zip, city, country, persons);
             Console.WriteLine("Adresser: ");
